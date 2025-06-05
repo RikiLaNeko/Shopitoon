@@ -41,7 +41,7 @@ HelpingPlatform est une application web qui aide les utilisateurs à gérer leur
 
 1. Clonez ce dépôt
    ```bash
-   git clone https://github.com/votre-username/helpingplatform.git
+   git clone https://github.com/RikiLaNeko/helpingplatform.git
    cd helpingplatform
    ```
 
