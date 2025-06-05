@@ -79,3 +79,50 @@ export function deleteSessionTokenCookie(event: RequestEvent) {
 		path: '/'
 	});
 }
+
+// À ajouter dans src/lib/server/auth.ts
+
+export async function updateSession(event: RequestEvent): Promise<void> {
+	if (!event.locals.user) {
+		return;
+	}
+
+	// Utiliser le nom de cookie cohérent avec le reste du code
+	const sessionToken = event.cookies.get(sessionCookieName);
+
+	if (!sessionToken) {
+		return;
+	}
+
+	try {
+		// Récupérer les données utilisateur à jour depuis la base de données
+		const [userData] = await db
+			.select()
+			.from(table.user)
+			.where(eq(table.user.id, event.locals.user.id));
+
+		if (userData) {
+			// Mettre à jour l'utilisateur dans locals
+			event.locals.user = {
+				id: userData.id,
+				username: userData.username,
+				email: userData.email,
+				avatarUrl: userData.avatarUrl,
+				nombreOfPoints: userData.nombreOfPoints
+			};
+
+			// Mettre à jour l'expiration du cookie
+			const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(sessionToken)));
+			const [session] = await db
+				.select()
+				.from(table.session)
+				.where(eq(table.session.id, sessionId));
+
+			if (session) {
+				setSessionTokenCookie(event, sessionToken, session.expiresAt);
+			}
+		}
+	} catch (error) {
+		console.error('Erreur lors de la mise à jour de la session:', error);
+	}
+}

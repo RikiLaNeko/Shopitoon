@@ -17,6 +17,12 @@
 			}
 		};
 	}
+
+	// Fonction pour capitaliser la première lettre
+	function capitalizeFirstLetter(str: string): string {
+		if (!str) return '';
+		return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+	}
 </script>
 
 <div
@@ -29,8 +35,10 @@
 
 		{#if isLoggingOut}
 			<div class="text-center">
-				<p class="mb-3 text-xl font-semibold text-indigo-700">Au revoir, {data.username} !</p>
-				<p class="mb-6 text-gray-600">Merci d'avoir utilisé HelpinPlatform. À bientôt !</p>
+				<p class="mb-3 text-xl font-semibold text-indigo-700">
+					Au revoir, {capitalizeFirstLetter(data.user.username)} !
+				</p>
+				<p class="mb-6 text-gray-600">Merci d'avoir utilisé HelpingPlatform. À bientôt !</p>
 				<div class="animate-pulse text-gray-500">Redirection vers la page d'accueil...</div>
 			</div>
 		{:else}

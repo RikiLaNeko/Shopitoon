@@ -55,6 +55,7 @@ export const actions: Actions = {
 			const sessionToken = auth.generateSessionToken();
 			const session = await auth.createSession(sessionToken, userId);
 			auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		} catch (e) {
 			return fail(500, { message: "Une erreur est survenue lors de l'inscription" });
 		}

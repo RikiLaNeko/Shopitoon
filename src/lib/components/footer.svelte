@@ -4,7 +4,7 @@
 	// Utilisation de $derived pour la réactivité avec les runes
 	const user = $derived(
 		$page.data?.user ||
-		($page.data?.userPoints !== undefined && { nombreOfPoints: $page.data.userPoints })
+			($page.data?.userPoints !== undefined && { nombreOfPoints: $page.data.userPoints })
 	);
 </script>
 
@@ -24,10 +24,15 @@
 				<a href="/" class="text-sm text-gray-600 transition hover:text-indigo-600">Accueil</a>
 				{#if user}
 					<a href="/task" class="text-sm text-gray-600 transition hover:text-indigo-600">Tâches</a>
-					<a href="/shop" class="text-sm text-gray-600 transition hover:text-indigo-600">Boutique</a>
+					<a href="/shop" class="text-sm text-gray-600 transition hover:text-indigo-600">Boutique</a
+					>
 				{/if}
-				<a href="#" class="text-sm text-gray-600 transition hover:text-indigo-600">Politique de confidentialité</a>
-				<a href="#" class="text-sm text-gray-600 transition hover:text-indigo-600">Conditions d'utilisation</a>
+				<a href="#" class="text-sm text-gray-600 transition hover:text-indigo-600"
+					>Politique de confidentialité</a
+				>
+				<a href="#" class="text-sm text-gray-600 transition hover:text-indigo-600"
+					>Conditions d'utilisation</a
+				>
 			</div>
 
 			<div class="mt-4 flex space-x-4 md:mt-0">
