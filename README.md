@@ -1,38 +1,113 @@
-# sv
+# HelpingPlatform
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+HelpingPlatform est une application web qui aide les utilisateurs à gérer leurs tâches quotidiennes tout en les récompensant avec des points qu'ils peuvent échanger dans une boutique virtuelle.
 
-## Creating a project
+## Fonctionnalités principales
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Gestion de compte
+- Inscription et connexion utilisateur
+- Personnalisation du profil (nom d'utilisateur, avatar)
+- Gestion du mot de passe
+- Suppression de compte
 
-```bash
-# create a new project in the current directory
-npx sv create
+### Gestion des tâches
+- Création et gestion de tâches
+- Tâches récurrentes
+- Suivi de l'historique des tâches
+- Système de points pour récompenser l'accomplissement des tâches
 
-# create a new project in my-app
-npx sv create my-app
+### Calendrier
+- Visualisation des tâches dans un calendrier mensuel
+- Navigation facile entre les mois
+
+### Boutique
+- Échange de points contre des récompenses virtuelles
+- Ajout, modification et suppression d'articles (pour les administrateurs)
+
+## Technologies utilisées
+
+- **Frontend**: SvelteKit 5, TailwindCSS 4
+- **Backend**: SvelteKit (server-side)
+- **Base de données**: LibSQL/Turso avec Drizzle ORM
+- **Authentification**: Système d'authentification personnalisé
+
+## Installation et démarrage
+
+### Prérequis
+- Node.js (version 18 ou supérieure)
+- npm ou yarn
+
+### Installation
+
+1. Clonez ce dépôt
+   ```bash
+   git clone https://github.com/votre-username/helpingplatform.git
+   cd helpingplatform
+   ```
+
+2. Installez les dépendances
+   ```bash
+   npm install
+   ```
+
+3. Configurez la base de données
+   ```bash
+   npm run db:push
+   ```
+
+4. Lancez l'application en mode développement
+   ```bash
+   npm run dev
+   ```
+
+5. Construisez l'application pour la production
+   ```bash
+   npm run build
+   ```
+
+## Structure du projet
+
+```
+helpingplatform/
+├── src/
+│   ├── lib/
+│   │   ├── components/     # Composants réutilisables
+│   │   ├── server/
+│   │   │   └── db/         # Configuration de la base de données et schémas
+│   │   └── stores/         # Stores Svelte
+│   └── routes/             # Routes de l'application
+│       ├── auth/           # Authentification (connexion, inscription, déconnexion)
+│       ├── calendar/       # Calendrier des tâches
+│       ├── profile/        # Gestion du profil utilisateur
+│       └── shop/           # Boutique virtuelle
+├── static/
+│   └── avatars/           # Images d'avatar uploadées
+└── package.json
 ```
 
-## Developing
+## Fonctionnalités de l'API
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Gestion d'utilisateur
+- `POST /auth/register` - Inscription d'un nouvel utilisateur
+- `POST /auth/login` - Connexion utilisateur
+- `POST /auth/logout` - Déconnexion utilisateur
+- `POST /profile?/updateUsername` - Mise à jour du nom d'utilisateur
+- `POST /profile?/updatePassword` - Mise à jour du mot de passe
+- `POST /profile?/updateAvatar` - Mise à jour de l'avatar
+- `POST /profile?/deleteAccount` - Suppression du compte
 
-```bash
-npm run dev
+### Gestion de la boutique
+- `POST /shop?/buy` - Achat d'un article
+- `POST /shop?/delete` - Suppression d'un article
+- `POST /shop/add?/add` - Ajout d'un article
+- `POST /shop/edit/[id]?/edit` - Modification d'un article
+- `POST /shop/edit/[id]?/delete` - Suppression d'un article
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+## Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
+
+## Licence
+
+Ce projet est sous licence [MIT](LICENSE).
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
