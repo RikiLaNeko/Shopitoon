@@ -48,7 +48,7 @@
 					<span
 						class="bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-blue-600 bg-clip-text text-lg font-bold text-transparent"
 					>
-						HelpingPlatform
+						Shopitoon
 					</span>
 				</a>
 			</div>

@@ -17,7 +17,7 @@
 				>
 					HP
 				</div>
-				<span class="ml-2 text-lg font-semibold text-blue-700">HelpingPlatform</span>
+				<span class="ml-2 text-lg font-semibold text-blue-700">Shopitoon</span>
 			</div>
 
 			<div class="flex flex-wrap justify-center gap-6 md:gap-8">
@@ -76,7 +76,7 @@
 		</div>
 
 		<div class="mt-8 text-center text-sm text-gray-500">
-			<p>&copy; {new Date().getFullYear()} HelpingPlatform. Tous droits réservés.</p>
+			<p>&copy; {new Date().getFullYear()} Shopitoon. Tous droits réservés.</p>
 		</div>
 	</div>
 </footer>

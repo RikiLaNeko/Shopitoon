@@ -28,7 +28,7 @@
 		<!-- Section d'introduction -->
 		<div class="py-12 text-center">
 			<h1 class="mb-6 text-5xl font-bold text-white drop-shadow-md">
-				Bienvenue sur HelpingPlatform
+				Bienvenue sur Shopitoon
 			</h1>
 			<p class="mx-auto mb-8 max-w-3xl text-xl text-white/90 drop-shadow">
 				Aujourd'hui, nous sommes le {dateActuelle}. {#if user}Bonjour, {capitalizeFirstLetter(
@@ -142,11 +142,11 @@
 		>
 			<div class="mx-auto max-w-4xl text-center">
 				<p class="mb-6 text-xl text-indigo-800/90 italic">
-					"HelpingPlatform est un outil idéal pour transformer votre productivité en récompenses
+					"Shopitoon est un outil idéal pour transformer votre productivité en récompenses
 					concrètes. En gamifiant vos objectifs quotidiens, vous serez plus motivé que jamais à
 					accomplir vos tâches."
 				</p>
-				<p class="font-semibold text-fuchsia-700">L'équipe HelpingPlatform</p>
+				<p class="font-semibold text-fuchsia-700">L'équipe Shopitoon</p>
 			</div>
 		</section>
 	</div>
