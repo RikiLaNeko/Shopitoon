@@ -1,6 +1,6 @@
-# HelpingPlatform
+# Shopitoon
 
-HelpingPlatform est une application web qui aide les utilisateurs à gérer leurs tâches quotidiennes tout en les récompensant avec des points qu'ils peuvent échanger dans une boutique virtuelle.
+Shopitoon est une application web qui aide les utilisateurs à gérer leurs tâches quotidiennes tout en les récompensant avec des points qu'ils peuvent échanger dans une boutique virtuelle.
 
 ## Fonctionnalités principales
 
