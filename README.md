@@ -41,7 +41,7 @@ Shopitoon est une application web qui aide les utilisateurs à gérer leurs tâc
 
 1. Clonez ce dépôt
    ```bash
-   git clone https://github.com/RikiLaNeko/helpingplatform.git
+   git clone https://github.com/RikiLaNeko/Shopitoon.git
    cd helpingplatform
    ```
 
