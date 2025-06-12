@@ -43,7 +43,7 @@
 					<div
 						class="animate-gradient-x flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-blue-600 font-bold text-white"
 					>
-						HP
+						ST
 					</div>
 					<span
 						class="bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-blue-600 bg-clip-text text-lg font-bold text-transparent"

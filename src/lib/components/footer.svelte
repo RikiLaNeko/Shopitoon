@@ -15,7 +15,7 @@
 				<div
 					class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 via-fuchsia-500 to-indigo-600 font-bold text-white"
 				>
-					HP
+					ST
 				</div>
 				<span class="ml-2 text-lg font-semibold text-blue-700">Shopitoon</span>
 			</div>
@@ -76,7 +76,7 @@
 		</div>
 
 		<div class="mt-8 text-center text-sm text-gray-500">
-			<p>&copy; {new Date().getFullYear()} Shopitoon. Tous droits réservés.</p>
+			<p>&copy; 2025 - {new Date().getFullYear()} Shopitoon. Tous droits réservés.</p>
 		</div>
 	</div>
 </footer>
