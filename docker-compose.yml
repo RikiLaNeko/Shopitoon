@@ -1,18 +1,20 @@
+version: '3.8'
+
 services:
   shopitoon:
     build: .
     restart: always
     environment:
       - NODE_ENV=production
-      - PORT=4173
-      - ORIGIN=http://localhost:4173
+      - PORT=3000
+      - ORIGIN=https://shopitton.dedsecm.xyz
+      - DATABASE_URL=file:local.db
     volumes:
       - ./local.db:/app/local.db # Pour persister la base de données SQLite
-      - ./static:/app/static # Pour les fichiers statiques
     ports:
-      - '4173:4173' # Port standard du mode preview de SvelteKit
+      - '7000:3000' # Port standard pour Node.js en production
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4173"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
       interval: 30s
       timeout: 10s
       retries: 3
