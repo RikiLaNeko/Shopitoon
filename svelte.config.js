@@ -14,6 +14,11 @@ const config = {
 		adapter: adapter(), // Ajout d'une virgule ici
 		files: {
 			assets: 'static' // Configuration pour les assets statiques
+		},
+		// Configuration pour autoriser les soumissions cross-site (pour le tunnel)
+		csrf: {
+			checkOrigin: true,  // Protège contre les attaques CSRF
+			allowedOrigins: ['https://shopitton.dedsecm.xyz']  // Autorise uniquement ton domaine
 		}
 	}
 };
