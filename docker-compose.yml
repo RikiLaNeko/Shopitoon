@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   shopitoon:
     build: .
@@ -10,7 +8,8 @@ services:
       - ORIGIN=https://shopitton.dedsecm.xyz
       - DATABASE_URL=file:/app/data/local.db
     volumes:
-      - ./local.db:/app/data/local.db # Pour persister la base de données SQLite (avec les bonnes permissions)
+      - ./local.db:/app/data/local.db # Pour persister la base de données SQLite
+      - ./static:/app/static # Pour persister les fichiers statiques comme les avatars
     ports:
       - '7000:3000' # Port standard pour Node.js en production
     healthcheck:
