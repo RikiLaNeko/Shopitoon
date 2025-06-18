@@ -53,7 +53,7 @@ Shopitoon est une application web qui aide les utilisateurs à gérer leurs tâc
 1. Clonez ce dépôt
    ```bash
    git clone https://github.com/RikiLaNeko/Shopitoon.git
-   cd helpingplatform
+   cd Shopitoon
    ```
 
 2. Installez les dépendances et lancez l'application :
@@ -190,7 +190,7 @@ Shopitoon is a web application that helps users manage their daily tasks while r
 1. Clone this repository
    ```bash
    git clone https://github.com/RikiLaNeko/Shopitoon.git
-   cd helpingplatform
+   cd Shopitoon
    ```
 
 2. Install dependencies and start the app:
