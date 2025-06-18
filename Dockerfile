@@ -23,6 +23,7 @@ WORKDIR /app
 COPY --from=builder /app/build ./
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/bun.lock ./bun.lock
+COPY --from=builder /app/static ./static
 # Ne pas copier la base de données, on utilisera un volume
 
 # Installer uniquement les dépendances de production
@@ -30,6 +31,8 @@ RUN bun install --production --frozen-lockfile
 
 # Créer un répertoire data avec les bonnes permissions
 RUN mkdir -p /app/data && chmod 777 /app/data
+# S'assurer que le dossier avatars existe et a les bonnes permissions
+RUN mkdir -p /app/static/avatars && chmod 777 /app/static/avatars
 
 # Exposer le port 3000 (port standard pour Node.js/adapter-node)
 EXPOSE 3000

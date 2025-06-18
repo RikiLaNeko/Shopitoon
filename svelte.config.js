@@ -21,6 +21,10 @@ const config = {
 		// Configuration pour autoriser les soumissions cross-site (pour le tunnel)
 		csrf: {
 			checkOrigin: false  // Désactive la vérification d'origine pour permettre le tunnel
+		},
+		// Configuration pour les assets statiques
+		paths: {
+			assets: ''
 		}
 	}
 };
