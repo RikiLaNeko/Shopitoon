@@ -1,0 +1,19 @@
+services:
+  shopitoon:
+    build: .
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - PORT=4173
+      - ORIGIN=http://localhost:4173
+    volumes:
+      - ./local.db:/app/local.db # Pour persister la base de données SQLite
+      - ./static:/app/static # Pour les fichiers statiques
+    ports:
+      - '4173:4173' # Port standard du mode preview de SvelteKit
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4173"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

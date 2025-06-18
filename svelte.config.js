@@ -17,8 +17,7 @@ const config = {
 		},
 		// Configuration pour autoriser les soumissions cross-site (pour le tunnel)
 		csrf: {
-			checkOrigin: true,  // Protège contre les attaques CSRF
-			allowedOrigins: ['https://shopitton.dedsecm.xyz']  // Autorise uniquement ton domaine
+			checkOrigin: false  // Désactive la vérification d'origine pour permettre le tunnel
 		}
 	}
 };
