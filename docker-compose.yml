@@ -8,9 +8,9 @@ services:
       - NODE_ENV=production
       - PORT=3000
       - ORIGIN=https://shopitton.dedsecm.xyz
-      - DATABASE_URL=file:local.db
+      - DATABASE_URL=file:/app/data/local.db
     volumes:
-      - ./local.db:/app/local.db # Pour persister la base de données SQLite
+      - ./local.db:/app/data/local.db # Pour persister la base de données SQLite (avec les bonnes permissions)
     ports:
       - '7000:3000' # Port standard pour Node.js en production
     healthcheck:
