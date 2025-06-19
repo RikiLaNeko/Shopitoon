@@ -38,7 +38,7 @@
 				<p class="mb-3 text-xl font-semibold text-indigo-700">
 					Au revoir, {capitalizeFirstLetter(data.user.username)} !
 				</p>
-				<p class="mb-6 text-gray-600">Merci d'avoir utilisé HelpingPlatform. À bientôt !</p>
+				<p class="mb-6 text-gray-600">Merci d'avoir utilisé Shopitoon. À bientôt !</p>
 				<div class="animate-pulse text-gray-500">Redirection vers la page d'accueil...</div>
 			</div>
 		{:else}

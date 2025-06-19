@@ -33,13 +33,16 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 bg-white/75 shadow-md backdrop-blur-md transition-all duration-300"
+	class="sticky top-0 z-50 bg-white/75 shadow-md backdrop-blur-md transition-all duration-300 relative"
 >
+	<!-- Effet de dégradé sur le bord inférieur -->
+	<div class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-indigo-600 opacity-60"></div>
+
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between">
 			<!-- Logo et nom du site -->
 			<div class="flex flex-shrink-0 items-center">
-				<a href="/" class="flex items-center space-x-2">
+				<a href="/" class="flex items-center space-x-2 transition-transform duration-300 hover:scale-105">
 					<div
 						class="animate-gradient-x flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-blue-600 font-bold text-white"
 					>
