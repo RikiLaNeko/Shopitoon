@@ -86,6 +86,12 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Shopitoon - Tâches</title>
+	<meta name="description" content="Gérez vos tâches quotidiennes, suivez vos progrès et gagnez des points sur Shopitoon." />
+	<meta name="robots" content="index, follow" />
+</svelte:head>
+
 <div
 	class="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-100 via-fuchsia-50 to-indigo-100 px-4 py-12"
 >

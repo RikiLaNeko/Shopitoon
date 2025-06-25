@@ -119,7 +119,9 @@
 </script>
 
 <svelte:head>
-	<title>Calendrier | HelpingPlatform</title>
+	<title>Shopitoon - Calendrier</title>
+	<meta name="description" content="Visualisez et organisez vos tâches dans le calendrier Shopitoon pour une meilleure productivité." />
+	<meta name="robots" content="index, follow" />
 </svelte:head>
 
 <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/task</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/shop</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/calendar</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/profile</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/privacy-policy</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/terms-of-service</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/auth/login</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/auth/register</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/auth/logout</loc>
+  </url>
+  <url>
+    <loc>https://shopitoon.dedsecm.xyz/avatars</loc>
+  </url>
+</urlset>
+User-agent: *
+Allow: /
+Sitemap: https://shopitoon.dedsecm.xyz/sitemap.xml
+

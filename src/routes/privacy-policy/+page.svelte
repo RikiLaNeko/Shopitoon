@@ -5,6 +5,12 @@
 	const user = $derived($page.data.user);
 </script>
 
+<svelte:head>
+	<title>Shopitoon - Politique de confidentialité</title>
+	<meta name="description" content="Consultez la politique de confidentialité de Shopitoon et découvrez comment vos données sont protégées." />
+	<meta name="robots" content="index, follow" />
+</svelte:head>
+
 <main class="animate-fade-in min-h-screen bg-gradient-to-br from-fuchsia-400 via-indigo-300 to-blue-400 pb-16">
 	<div class="mx-auto max-w-4xl px-4 py-12">
 		<div class="mb-8 text-center">
