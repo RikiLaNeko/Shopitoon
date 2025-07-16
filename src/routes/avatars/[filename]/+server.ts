@@ -58,7 +58,7 @@ export async function GET({ params }) {
 			}
 		});
 	} catch (err) {
-		console.error('Erreur lors de la récupération de l\'avatar:', err);
-		throw error(500, 'Erreur lors de la récupération de l\'avatar');
+		console.error("Erreur lors de la récupération de l'avatar:", err);
+		throw error(500, "Erreur lors de la récupération de l'avatar");
 	}
 }

@@ -7,24 +7,31 @@
 
 <svelte:head>
 	<title>Shopitoon - Politique de confidentialité</title>
-	<meta name="description" content="Consultez la politique de confidentialité de Shopitoon et découvrez comment vos données sont protégées." />
+	<meta
+		name="description"
+		content="Consultez la politique de confidentialité de Shopitoon et découvrez comment vos données sont protégées."
+	/>
 	<meta name="robots" content="index, follow" />
 </svelte:head>
 
-<main class="animate-fade-in min-h-screen bg-gradient-to-br from-fuchsia-400 via-indigo-300 to-blue-400 pb-16">
+<main
+	class="animate-fade-in min-h-screen bg-gradient-to-br from-fuchsia-400 via-indigo-300 to-blue-400 pb-16"
+>
 	<div class="mx-auto max-w-4xl px-4 py-12">
 		<div class="mb-8 text-center">
 			<h1 class="text-4xl font-bold text-white drop-shadow-md">Politique de Confidentialité</h1>
 			<p class="mt-2 text-lg text-white/90">Votre vie privée est importante pour nous</p>
 		</div>
 
-		<div class="rounded-xl bg-white/80 p-8 shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-xl">
+		<div
+			class="rounded-xl bg-white/80 p-8 shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-xl"
+		>
 			<p class="text-sm text-gray-500">Dernière mise à jour : 19 juin 2025</p>
 
 			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Introduction</h2>
 			<p class="mt-2 text-gray-600">
-				Bienvenue sur Shopitoon. Cette politique de confidentialité explique comment nous traitons vos
-				informations personnelles lorsque vous utilisez notre application.
+				Bienvenue sur Shopitoon. Cette politique de confidentialité explique comment nous traitons
+				vos informations personnelles lorsque vous utilisez notre application.
 			</p>
 			<p class="mt-2 text-gray-600">
 				Chez Shopitoon, nous nous engageons à protéger votre vie privée. Nous ne collectons que les
@@ -33,7 +40,8 @@
 
 			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Informations Collectées</h2>
 			<p class="mt-2 text-gray-600">
-				Nous ne collectons que les informations minimales requises pour le fonctionnement de votre compte :
+				Nous ne collectons que les informations minimales requises pour le fonctionnement de votre
+				compte :
 			</p>
 			<ul class="mt-2 list-disc pl-6 text-gray-600">
 				<li>Nom d'utilisateur</li>
@@ -43,9 +51,7 @@
 			</ul>
 
 			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Utilisation des Données</h2>
-			<p class="mt-2 text-gray-600">
-				Vos données sont uniquement utilisées pour :
-			</p>
+			<p class="mt-2 text-gray-600">Vos données sont uniquement utilisées pour :</p>
 			<ul class="mt-2 list-disc pl-6 text-gray-600">
 				<li>Créer et gérer votre compte personnel</li>
 				<li>Vous permettre d'utiliser les fonctionnalités de l'application</li>
@@ -58,7 +64,8 @@
 			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Stockage des Données</h2>
 			<p class="mt-2 text-gray-600">
 				Vos données sont stockées localement et de manière sécurisée. Nous utilisons des méthodes de
-				chiffrement modernes pour protéger toutes les données sensibles, notamment les mots de passe.
+				chiffrement modernes pour protéger toutes les données sensibles, notamment les mots de
+				passe.
 			</p>
 
 			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Vos Droits</h2>
@@ -71,7 +78,8 @@
 				<li>Droit à la portabilité des données</li>
 			</ul>
 			<p class="mt-2 text-gray-600">
-				Pour exercer ces droits, vous pouvez simplement nous contacter via l'adresse indiquée ci-dessous.
+				Pour exercer ces droits, vous pouvez simplement nous contacter via l'adresse indiquée
+				ci-dessous.
 			</p>
 
 			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Cookies et Technologies Similaires</h2>
@@ -81,10 +89,12 @@
 				publicitaires.
 			</p>
 
-			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Modifications de la Politique de Confidentialité</h2>
+			<h2 class="mt-6 text-xl font-semibold text-indigo-600">
+				Modifications de la Politique de Confidentialité
+			</h2>
 			<p class="mt-2 text-gray-600">
-				Nous pouvons occasionnellement mettre à jour cette politique. Les modifications importantes seront
-				notifiées sur notre site web ou par e-mail.
+				Nous pouvons occasionnellement mettre à jour cette politique. Les modifications importantes
+				seront notifiées sur notre site web ou par e-mail.
 			</p>
 
 			<h2 class="mt-6 text-xl font-semibold text-indigo-600">Contact</h2>
@@ -98,7 +108,8 @@
 					<a
 						href="mailto:chloe.mortreux@proton.me"
 						class="text-indigo-600 transition hover:text-fuchsia-600 hover:underline"
-					>chloe.mortreux@proton.me</a>
+						>chloe.mortreux@proton.me</a
+					>
 				</li>
 				<li>
 					<span class="font-medium">GitHub:</span>
@@ -107,7 +118,8 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-indigo-600 transition hover:text-fuchsia-600 hover:underline"
-					>https://github.com/RikiLaNeko/</a>
+						>https://github.com/RikiLaNeko/</a
+					>
 				</li>
 			</ul>
 

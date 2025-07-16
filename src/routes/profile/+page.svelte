@@ -134,7 +134,10 @@
 
 <svelte:head>
 	<title>Shopitoon - Profil utilisateur</title>
-	<meta name="description" content="Gérez votre profil, modifiez vos informations et personnalisez votre expérience sur Shopitoon." />
+	<meta
+		name="description"
+		content="Gérez votre profil, modifiez vos informations et personnalisez votre expérience sur Shopitoon."
+	/>
 	<meta name="robots" content="index, follow" />
 </svelte:head>
 

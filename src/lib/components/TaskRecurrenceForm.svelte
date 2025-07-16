@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Correction de la syntaxe des props avec Svelte 5
-	export let task = $props({
+	export let task = {
 		id: '',
 		title: '',
 		description: '',
@@ -10,7 +10,7 @@
 		recurrenceType: 'daily',
 		recurrenceInterval: 1,
 		recurrenceCount: 1
-	});
+	};
 
 	const recurrenceTypes = [
 		{ value: 'daily', label: 'Quotidien' },

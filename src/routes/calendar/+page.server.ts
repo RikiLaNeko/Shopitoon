@@ -10,11 +10,11 @@ export const load: PageServerLoad = async (event) => {
 		return redirect(302, '/auth/login');
 	}
 
-	// Récupérer toutes les tâches récurrentes de l'utilisateur
+	// Récupérer toutes les tâches de l'utilisateur (récurrentes et non récurrentes)
 	const tasks = await db
 		.select()
 		.from(table.task)
-		.where(and(eq(table.task.userId, event.locals.user.id), eq(table.task.isRecurring, 1)));
+		.where(eq(table.task.userId, event.locals.user.id));
 
 	// Récupérer l'historique des tâches complétées
 	const now = new Date();

@@ -27,9 +27,7 @@
 	<div class="mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 lg:px-8">
 		<!-- Section d'introduction -->
 		<div class="py-12 text-center">
-			<h1 class="mb-6 text-5xl font-bold text-white drop-shadow-md">
-				Bienvenue sur Shopitoon
-			</h1>
+			<h1 class="mb-6 text-5xl font-bold text-white drop-shadow-md">Bienvenue sur Shopitoon</h1>
 			<p class="mx-auto mb-8 max-w-3xl text-xl text-white/90 drop-shadow">
 				Aujourd'hui, nous sommes le {dateActuelle}. {#if user}Bonjour, {capitalizeFirstLetter(
 						user.username

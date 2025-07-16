@@ -9,14 +9,19 @@
 
 <svelte:head>
 	<title>Shopitoon - Boutique</title>
-	<meta name="description" content="Découvrez la boutique Shopitoon : échangez vos points contre des récompenses et articles exclusifs." />
+	<meta
+		name="description"
+		content="Découvrez la boutique Shopitoon : échangez vos points contre des récompenses et articles exclusifs."
+	/>
 	<meta name="robots" content="index, follow" />
-	<script type="application/ld+json">{
-	  "@context": "https://schema.org",
-	  "@type": "Store",
-	  "name": "Shopitoon Boutique",
-	  "url": "https://shopitoon.dedsecm.xyz/shop"
-	}</script>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Store",
+			"name": "Shopitoon Boutique",
+			"url": "https://shopitoon.dedsecm.xyz/shop"
+		}
+	</script>
 </svelte:head>
 
 <div

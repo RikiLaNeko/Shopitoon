@@ -16,22 +16,26 @@ Shopitoon est une application web qui aide les utilisateurs à gérer leurs tâc
 ## Fonctionnalités principales
 
 ### Gestion de compte
+
 - Inscription et connexion utilisateur
 - Personnalisation du profil (nom d'utilisateur, avatar)
 - Gestion du mot de passe
 - Suppression de compte
 
 ### Gestion des tâches
+
 - Création et gestion de tâches
 - Tâches récurrentes
 - Suivi de l'historique des tâches
 - Système de points pour récompenser l'accomplissement des tâches
 
 ### Calendrier
+
 - Visualisation des tâches dans un calendrier mensuel
 - Navigation facile entre les mois
 
 ### Boutique
+
 - Échange de points contre des récompenses virtuelles
 - Ajout, modification et suppression d'articles (pour les administrateurs)
 
@@ -45,12 +49,14 @@ Shopitoon est une application web qui aide les utilisateurs à gérer leurs tâc
 ## Installation et démarrage
 
 ### Prérequis
+
 - Node.js (version 18 ou supérieure)
 - npm ou Bun
 
 ### Installation
 
 1. Clonez ce dépôt
+
    ```bash
    git clone https://github.com/RikiLaNeko/Shopitoon.git
    cd Shopitoon
@@ -66,6 +72,7 @@ npm install
 npm run db:push
 npm run dev
 ```
+
 </details>
 
 <details>
@@ -76,6 +83,7 @@ bun install
 bun run db:push
 bun run dev
 ```
+
 </details>
 
 3. Pour construire l'application pour la production :
@@ -86,6 +94,7 @@ bun run dev
 ```bash
 npm run build
 ```
+
 </details>
 
 <details>
@@ -94,6 +103,7 @@ npm run build
 ```bash
 bun run build
 ```
+
 </details>
 
 ## Structure du projet
@@ -119,6 +129,7 @@ helpingplatform/
 ## Fonctionnalités de l'API
 
 ### Gestion d'utilisateur
+
 - `POST /auth/register` - Inscription d'un nouvel utilisateur
 - `POST /auth/login` - Connexion utilisateur
 - `POST /auth/logout` - Déconnexion utilisateur
@@ -128,6 +139,7 @@ helpingplatform/
 - `POST /profile?/deleteAccount` - Suppression du compte
 
 ### Gestion de la boutique
+
 - `POST /shop?/buy` - Achat d'un article
 - `POST /shop?/delete` - Suppression d'un article
 - `POST /shop/add?/add` - Ajout d'un article
@@ -153,22 +165,26 @@ Shopitoon is a web application that helps users manage their daily tasks while r
 ## Main Features
 
 ### Account Management
+
 - User registration and login
 - Profile customization (username, avatar)
 - Password management
 - Account deletion
 
 ### Task Management
+
 - Create and manage tasks
 - Recurring tasks
 - Task history tracking
 - Points system to reward task completion
 
 ### Calendar
+
 - View tasks in a monthly calendar
 - Easy navigation between months
 
 ### Shop
+
 - Exchange points for virtual rewards
 - Add, edit, and delete items (for admins)
 
@@ -182,12 +198,14 @@ Shopitoon is a web application that helps users manage their daily tasks while r
 ## Installation & Start
 
 ### Prerequisites
+
 - Node.js (version 18 or higher)
 - npm or Bun
 
 ### Installation
 
 1. Clone this repository
+
    ```bash
    git clone https://github.com/RikiLaNeko/Shopitoon.git
    cd Shopitoon
@@ -203,6 +221,7 @@ npm install
 npm run db:push
 npm run dev
 ```
+
 </details>
 
 <details>
@@ -213,6 +232,7 @@ bun install
 bun run db:push
 bun run dev
 ```
+
 </details>
 
 3. To build the app for production:
@@ -223,6 +243,7 @@ bun run dev
 ```bash
 npm run build
 ```
+
 </details>
 
 <details>
@@ -231,6 +252,7 @@ npm run build
 ```bash
 bun run build
 ```
+
 </details>
 
 ## Project Structure
@@ -256,6 +278,7 @@ helpingplatform/
 ## API Features
 
 ### User Management
+
 - `POST /auth/register` - Register a new user
 - `POST /auth/login` - User login
 - `POST /auth/logout` - User logout
@@ -265,6 +288,7 @@ helpingplatform/
 - `POST /profile?/deleteAccount` - Delete account
 
 ### Shop Management
+
 - `POST /shop?/buy` - Buy an item
 - `POST /shop?/delete` - Delete an item
 - `POST /shop/add?/add` - Add an item

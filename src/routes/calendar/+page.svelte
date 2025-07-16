@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import type { Task } from '$lib/server/db/schema';
+	import TaskRecurrenceForm from '$lib/components/TaskRecurrenceForm.svelte';
 
 	// Récupération des données de la page
 	const tasks = $derived($page.data.tasks || []);
@@ -29,18 +30,25 @@
 		const lastDay = new Date(year, month + 1, 0);
 		const daysArray: CalendarDay[] = [];
 
-		// Ajouter les jours du mois précédent pour compléter la première semaine
-		const firstDayOfWeek = firstDay.getDay();
-		for (let i = firstDayOfWeek - 1; i >= 0; i--) {
-			const prevDate = new Date(year, month, -i);
-			daysArray.push({
-				date: prevDate,
-				tasks: getTasksForDate(prevDate),
-				isCurrentMonth: false
-			});
+		// Calculate the day of week for the first day (0 = Sunday, 1 = Monday, ...)
+		let startDay = firstDay.getDay();
+		// Adjust for French calendar (week starts on Monday)
+		startDay = startDay === 0 ? 6 : startDay - 1;
+
+		// Add days from previous month to fill the first week
+		if (startDay > 0) {
+			const prevMonthLastDay = new Date(year, month, 0);
+			for (let i = startDay - 1; i >= 0; i--) {
+				const prevDate = new Date(year, month - 1, prevMonthLastDay.getDate() - i);
+				daysArray.push({
+					date: prevDate,
+					tasks: getTasksForDate(prevDate),
+					isCurrentMonth: false
+				});
+			}
 		}
 
-		// Ajouter les jours du mois en cours
+		// Add days from current month
 		for (let i = 1; i <= lastDay.getDate(); i++) {
 			const currentDate = new Date(year, month, i);
 			daysArray.push({
@@ -50,15 +58,18 @@
 			});
 		}
 
-		// Compléter la dernière semaine avec les jours du mois suivant
-		const lastDayOfWeek = lastDay.getDay();
-		for (let i = 1; i < 7 - lastDayOfWeek; i++) {
-			const nextDate = new Date(year, month + 1, i);
-			daysArray.push({
-				date: nextDate,
-				tasks: getTasksForDate(nextDate),
-				isCurrentMonth: false
-			});
+		// Add days from next month to fill the last week
+		let endDay = lastDay.getDay();
+		endDay = endDay === 0 ? 6 : endDay - 1;
+		if (endDay < 6) {
+			for (let i = 1; i <= 6 - endDay; i++) {
+				const nextDate = new Date(year, month + 1, i);
+				daysArray.push({
+					date: nextDate,
+					tasks: getTasksForDate(nextDate),
+					isCurrentMonth: false
+				});
+			}
 		}
 
 		calendarDays = daysArray;
@@ -116,11 +127,48 @@
 		'Novembre',
 		'Décembre'
 	];
+
+	// Modal state and handler
+	let showTaskModal = $state(false);
+	let selectedDate: Date | null = $state(null);
+	let newTask = $state({
+		title: '',
+		description: '',
+		points: 1,
+		priority: 0,
+		isRecurring: false,
+		recurrenceType: 'daily',
+		recurrenceInterval: 1,
+		recurrenceCount: 1
+	});
+
+	function openTaskModal(date: Date) {
+		selectedDate = date;
+		showTaskModal = true;
+		// Reset form state
+		newTask = {
+			title: '',
+			description: '',
+			points: 1,
+			priority: 0,
+			isRecurring: false,
+			recurrenceType: 'daily',
+			recurrenceInterval: 1,
+			recurrenceCount: 1
+		};
+	}
+	function closeTaskModal() {
+		showTaskModal = false;
+		selectedDate = null;
+	}
 </script>
 
 <svelte:head>
 	<title>Shopitoon - Calendrier</title>
-	<meta name="description" content="Visualisez et organisez vos tâches dans le calendrier Shopitoon pour une meilleure productivité." />
+	<meta
+		name="description"
+		content="Visualisez et organisez vos tâches dans le calendrier Shopitoon pour une meilleure productivité."
+	/>
 	<meta name="robots" content="index, follow" />
 </svelte:head>
 
@@ -175,12 +223,10 @@
 
 				{#each calendarDays as day (day.date.toISOString())}
 					<div
-						class="h-28 overflow-y-auto rounded-md border p-1 {day.isCurrentMonth
-							? 'bg-white'
-							: 'bg-gray-100'}
-            {day.date.toDateString() === today.toDateString() ? 'ring-2 ring-indigo-500' : ''}"
+						class="h-28 overflow-y-auto rounded-md border p-1 {day.isCurrentMonth ? 'bg-white cursor-pointer hover:bg-indigo-50' : 'bg-gray-300 text-gray-400 opacity-70 border-dashed'} {day.date.toDateString() === today.toDateString() ? 'ring-2 ring-indigo-500' : ''}"
+						on:click={() => day.isCurrentMonth && openTaskModal(day.date)}
 					>
-						<div class="text-xs font-medium text-gray-500">{formatDate(day.date)}</div>
+						<div class="text-xs font-medium {day.isCurrentMonth ? 'text-gray-500' : 'text-gray-400'}">{formatDate(day.date)}</div>
 						{#if day.tasks.length > 0}
 							<ul class="mt-1 space-y-1">
 								{#each day.tasks as task (task.id)}
@@ -196,4 +242,18 @@
 			</div>
 		</div>
 	</div>
+
+	{#if showTaskModal}
+		<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+			<div class="bg-white/90 rounded-2xl shadow-2xl p-8 w-full max-w-md transition-all duration-300">
+				<h3 class="text-lg font-bold mb-2 text-blue-700">Créer une tâche pour le {selectedDate ? selectedDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : ''}</h3>
+				<form method="post" action="/task/add?fromCalendar=1" on:submit={closeTaskModal}>
+					<input type="hidden" name="dueDate" value={selectedDate ? selectedDate.toISOString() : ''} />
+					<TaskRecurrenceForm bind:task={newTask} />
+					<button type="submit" name="add" class="bg-gradient-to-r from-blue-600 via-fuchsia-500 to-indigo-600 text-white px-4 py-2 rounded-lg font-bold shadow transition hover:scale-105 hover:from-blue-700 hover:to-indigo-700">Créer</button>
+					<button type="button" class="ml-2 px-4 py-2 rounded-lg border font-bold bg-gray-200 text-gray-700 hover:bg-gray-300" on:click={closeTaskModal}>Annuler</button>
+				</form>
+			</div>
+		</div>
+	{/if}
 </div>

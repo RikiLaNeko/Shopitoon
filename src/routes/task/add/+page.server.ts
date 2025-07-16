@@ -42,13 +42,21 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
 	add: async (event) => {
 		const formData = await event.request.formData();
+		console.log('FormData:', Array.from(formData.entries()));
 		const title = formData.get('title');
 		const description = formData.get('description');
 		const points = Number(formData.get('points'));
 		const priority = Number(formData.get('priority') || 0);
-		const isRecurring = formData.get('isRecurring') === 'on' ? 1 : 0;
+		const isRecurringRaw = formData.get('isRecurring');
+		console.log('isRecurringRaw:', isRecurringRaw);
+		const isRecurring = (isRecurringRaw === 'on' || isRecurringRaw === 'true' || isRecurringRaw === '1') ? 1 : 0;
+		const dueDateRaw = formData.get('dueDate');
+		console.log('dueDateRaw:', dueDateRaw);
+		let dueDate = null;
+		if (dueDateRaw) {
+			dueDate = new Date(dueDateRaw.toString());
+		}
 
-		// Valeurs de récurrence (si applicable)
 		let recurrenceType = null;
 		let recurrenceInterval = null;
 		let recurrenceCount = null;
@@ -58,12 +66,21 @@ export const actions: Actions = {
 			recurrenceType = formData.get('recurrenceType')?.toString();
 			recurrenceInterval = Number(formData.get('recurrenceInterval'));
 			recurrenceCount = Number(formData.get('recurrenceCount') || 1);
-
-			// Calculer la prochaine date d'échéance
+			console.log('recurrenceType:', recurrenceType);
+			console.log('recurrenceInterval:', recurrenceInterval);
+			console.log('recurrenceCount:', recurrenceCount);
 			if (recurrenceType && !isNaN(recurrenceInterval)) {
-				nextDueDate = calculateNextDueDate(recurrenceType, recurrenceInterval);
+				if (dueDate) {
+					nextDueDate = dueDate;
+				} else {
+					nextDueDate = calculateNextDueDate(recurrenceType, recurrenceInterval);
+				}
 			}
+		} else if (dueDate) {
+			nextDueDate = dueDate;
 		}
+
+		console.log('nextDueDate:', nextDueDate);
 
 		if (
 			typeof title !== 'string' ||
@@ -73,10 +90,27 @@ export const actions: Actions = {
 			points < 1 ||
 			(isRecurring && (!recurrenceType || isNaN(recurrenceInterval) || recurrenceInterval < 1))
 		) {
+			console.log('Validation failed');
 			return fail(400, { message: 'Champs invalides' });
 		}
 
 		const now = new Date();
+		console.log('Insert values:', {
+			id: generateTaskId(),
+			userId: event.locals.user.id,
+			title,
+			description,
+			points,
+			createdAt: now,
+			updatedAt: now,
+			completed: 0,
+			priority,
+			isRecurring,
+			recurrenceType,
+			recurrenceInterval,
+			recurrenceCount,
+			nextDueDate
+		});
 
 		await db.insert(table.task).values({
 			id: generateTaskId(),
@@ -95,6 +129,11 @@ export const actions: Actions = {
 			nextDueDate
 		});
 
+		if (event.url.searchParams.get('fromCalendar')) {
+			console.log('Redirecting to /calendar');
+			return redirect(302, '/calendar');
+		}
+		console.log('Redirecting to /task');
 		return redirect(302, '/task');
 	}
 };

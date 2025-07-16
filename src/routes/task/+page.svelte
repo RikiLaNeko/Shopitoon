@@ -88,7 +88,10 @@
 
 <svelte:head>
 	<title>Shopitoon - Tâches</title>
-	<meta name="description" content="Gérez vos tâches quotidiennes, suivez vos progrès et gagnez des points sur Shopitoon." />
+	<meta
+		name="description"
+		content="Gérez vos tâches quotidiennes, suivez vos progrès et gagnez des points sur Shopitoon."
+	/>
 	<meta name="robots" content="index, follow" />
 </svelte:head>
 
